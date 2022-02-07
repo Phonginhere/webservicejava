@@ -1,0 +1,12 @@
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:11:47:40 +0700] "GET /newjersey/rest/hello/chiaboy HTTP/1.1" 404 1007 http-bio-8080-exec-1 25
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:11:47:41 +0700] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-2 0
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:11:47:45 +0700] "GET /JerseyDemo/webapi/myresource HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:11:47:46 +0700] "GET /JerseyDemo/webapi/myresource HTTP/1.1" 404 - http-bio-8080-exec-4 0
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:11:48:28 +0700] "GET /myresource HTTP/1.1" 404 - http-bio-8080-exec-5 0
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:11:50:48 +0700] "GET /newjersey/rest/hello/chiaboy HTTP/1.1" 404 1007 http-bio-8080-exec-1 29
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:11:52:23 +0700] "GET /newjersey/webapi/myresource HTTP/1.1" 500 4798 http-bio-8080-exec-3 5
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:11:52:33 +0700] "GET /newjersey/webapi/myresource HTTP/1.1" 500 4798 http-bio-8080-exec-4 4
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:11:53:47 +0700] "GET /newjersey/webapi/myresource HTTP/1.1" 404 1005 http-bio-8080-exec-1 24
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:11:53:50 +0700] "GET /newjersey/web/myresource HTTP/1.1" 500 4798 http-bio-8080-exec-2 5
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:12:10:39 +0700] "GET /WebApplication_Product_2.0/student-list HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [07/Feb/2022:12:10:49 +0700] "GET /webappservice HTTP/1.1" 404 - http-bio-8080-exec-4 0
