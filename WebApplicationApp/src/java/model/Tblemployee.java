@@ -12,8 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -21,6 +20,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "tblemployee")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Tblemployee.findAll", query = "SELECT t FROM Tblemployee t"),
     @NamedQuery(name = "Tblemployee.findByEmployeeNo", query = "SELECT t FROM Tblemployee t WHERE t.employeeNo = :employeeNo"),
@@ -32,23 +32,15 @@ public class Tblemployee implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
     @Column(name = "EmployeeNo")
     private String employeeNo;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
     @Column(name = "EmployeeName")
     private String employeeName;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
     @Column(name = "PlaceOfWork")
     private String placeOfWork;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
     @Column(name = "PhoneNo")
     private String phoneNo;
 
