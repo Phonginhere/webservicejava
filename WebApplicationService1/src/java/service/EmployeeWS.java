@@ -4,6 +4,7 @@
  */
 package service;
 
+import java.io.IOException;
 import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -12,6 +13,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Tblemployee;
@@ -32,12 +35,13 @@ public class EmployeeWS {
     }
     
       @WebMethod(operationName = "display")
-    public void display(HttpServletRequest request, HttpServletResponse response) {
+    public void display(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("WebApplicationAppPU");
         EntityManager em = factory.createEntityManager();
         Query query = em.createNamedQuery("Tblemployee.findAll", Tblemployee.class);
         List<Tblemployee> list = query.getResultList();
         request.setAttribute("display", list);
-        
+         RequestDispatcher dispatcher = request.getRequestDispatcher("/studentList.jsp");
+        dispatcher.forward(request, response);
     }
 }
