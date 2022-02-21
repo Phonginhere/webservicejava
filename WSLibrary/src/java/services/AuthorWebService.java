@@ -32,71 +32,92 @@ public class AuthorWebService {
         return "Hello " + txt + " !";
     }
 
-    @WebMethod(operationName = "findAll")
-    public List<Author> findAll() {
-        EntityManager entityManager = Persistence.createEntityManagerFactory("WSLibraryPU").createEntityManager();
-        List<Author> authors = new ArrayList<Author>();
+//    @WebMethod(operationName = "findAll")
+//    public List<Author> findAll() {
+//        EntityManager entityManager = Persistence.createEntityManagerFactory("WSLibraryPU").createEntityManager();
+//        List<Author> authors = new ArrayList<Author>();
+//
+//        try {
+//            Query query = entityManager.createNamedQuery("Author.findAll", Author.class);
+//            authors = query.getResultList();
+//            return authors;
+//        } catch (Exception e) {
+//            return null;
+//        }
+//    }
 
-        try {
-            Query query = entityManager.createNamedQuery("Author.findAll", Author.class);
-            authors = query.getResultList();
-            return authors;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    @WebMethod(operationName = "insert")
-    public Author insert(@WebParam(name = "authorName") String authorName,
-            @WebParam(name = "birthday") Date birthday,
-            @WebParam(name = "address") String address,
-            @WebParam(name = "nickname") String nickname) {
-        EntityManager entityManager = Persistence.createEntityManagerFactory("WSLibraryPU").createEntityManager();
-        try {
-            EntityTransaction entityTransaction = entityManager.getTransaction();
-            entityTransaction.begin();
-            Author author = new Author(authorName, birthday, address, nickname);
-            entityManager.persist(author);
-            entityTransaction.commit();
-
-            return author;
-        } catch (Exception e) {
-            return null;
-        }
-
-    }
-
-    @WebMethod(operationName = "update")
-    public Author update(@WebParam(name = "authorId") String authorId,
-            @WebParam(name = "authorName") String authorName,
-            @WebParam(name = "birthday") Date birthday,
-            @WebParam(name = "address") String address,
-            @WebParam(name = "nickname") String nickname) {
-        EntityManager entityManager = Persistence.createEntityManagerFactory("WSLibraryPU").createEntityManager();
-        HashMap<String, Object> result = new HashMap();
-        try {
-            Query query = entityManager.createNamedQuery("Author.findByAuthorId", Author.class);
-            query.setParameter("authorId", authorId);
-            Author author = (Author) query.getSingleResult();
-            if (author != null) {
-                EntityTransaction entityTransaction = entityManager.getTransaction();
-                entityTransaction.begin();
-                author.setAuthorName(authorName);
-                author.setBirthday(birthday);
-                author.setAddress(address);
-                author.setNickname(nickname);
-                entityManager.persist(author);
-                entityTransaction.commit();
-                return author;
-            }
-        } catch (Exception e) {
-            return null;
-        }
-        return null;
-    }
-
-    @WebMethod(operationName = "delete")
-    public String delete(@WebParam(name = "name") String txt) {
+     @WebMethod(operationName = "insert")
+    public String insert(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
     }
+    
+//    @WebMethod(operationName = "insert")
+//    public String insert() {
+////        @WebParam(name = "authorName") String authorName,
+////            @WebParam(name = "birthday") Date birthday,
+////            @WebParam(name = "address") String address,
+////            @WebParam(name = "nickname") String nickname
+////authorName, birthday, address, nickname
+////        EntityManager entityManager = Persistence.createEntityManagerFactory("WSLibraryPU").createEntityManager();
+////        try {
+////            EntityTransaction entityTransaction = entityManager.getTransaction();
+////            entityTransaction.begin();
+//            Author author = new Author();
+////            entityManager.persist(author);
+////            entityTransaction.commit();
+////
+////            return author;
+////        } catch (Exception e) {
+////            return null;
+////        }
+//           return ""; 
+//    }
+
+//    @WebMethod(operationName = "update")
+//    public Author update(@WebParam(name = "authorId") String authorId,
+//            @WebParam(name = "authorName") String authorName,
+//            @WebParam(name = "birthday") Date birthday,
+//            @WebParam(name = "address") String address,
+//            @WebParam(name = "nickname") String nickname) {
+//        EntityManager entityManager = Persistence.createEntityManagerFactory("WSLibraryPU").createEntityManager();
+//        HashMap<String, Object> result = new HashMap();
+//        try {
+//            Query query = entityManager.createNamedQuery("Author.findByAuthorId", Author.class);
+//            query.setParameter("authorId", authorId);
+//            Author author = (Author) query.getSingleResult();
+//            if (author != null) {
+//                EntityTransaction entityTransaction = entityManager.getTransaction();
+//                entityTransaction.begin();
+//                author.setAuthorName(authorName);
+//                author.setBirthday(birthday);
+//                author.setAddress(address);
+//                author.setNickname(nickname);
+//                entityManager.persist(author);
+//                entityTransaction.commit();
+//                return author;
+//            }
+//        } catch (Exception e) {
+//            return null;
+//        }
+//        return null;
+//    }
+//
+//    @WebMethod(operationName = "delete")
+//    public int delete(@WebParam(name = "authorId") String authorId) {
+//        EntityManager entitymanager = Persistence.createEntityManagerFactory("WSLibraryPU").createEntityManager();
+//            try{
+//                Query query = entitymanager.createNamedQuery("Author.findByAuthorId", Author.class);
+//                query.setParameter("authorId", authorId);
+//                Author author = (Author) query.getSingleResult();
+//                if(author !=null){
+//                    EntityTransaction entityTransaction = entitymanager.getTransaction();
+//                    entityTransaction.begin();
+//                    entitymanager.remove(author);
+//                    entityTransaction.commit();
+//                }
+//                return 1;
+//            }catch(Exception e){
+//                return 0;
+//            }
+//    }
 }

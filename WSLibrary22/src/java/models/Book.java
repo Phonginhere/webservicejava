@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package models;
 
@@ -35,7 +36,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Book.findByPrice", query = "SELECT b FROM Book b WHERE b.price = :price"),
     @NamedQuery(name = "Book.findByDeliveredDate", query = "SELECT b FROM Book b WHERE b.deliveredDate = :deliveredDate"),
     @NamedQuery(name = "Book.findByNickname", query = "SELECT b FROM Book b WHERE b.nickname = :nickname"),
-    @NamedQuery(name = "Book.findByFactory", query = "SELECT b FROM Book b WHERE b.factory = :factory")})
+    @NamedQuery(name = "Book.findByAuthorId", query = "SELECT b FROM Book b WHERE b.authorId = :authorId")
+})
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -60,11 +62,6 @@ public class Book implements Serializable {
     @Basic(optional = false)
     @Column(name = "factory")
     private String factory;
-    //begin add
-    @Basic(optional = false)
-    @Column(name = "authorId")
-    private short authorIdd;
-    //end add
     @JoinColumn(name = "authorId", referencedColumnName = "authorId")
     @ManyToOne(optional = false)
     private Author authorId;
@@ -76,14 +73,13 @@ public class Book implements Serializable {
         this.id = id;
     }
 
-    public Book(Short id, String bookName, float price, Date deliveredDate, String nickname, String factory, short authorIdd) {
+    public Book(Short id, String bookName, float price, Date deliveredDate, String nickname, String factory) {
         this.id = id;
         this.bookName = bookName;
         this.price = price;
         this.deliveredDate = deliveredDate;
         this.nickname = nickname;
         this.factory = factory;
-        this.authorIdd = authorIdd;
     }
 
     public Short getId() {
@@ -134,12 +130,12 @@ public class Book implements Serializable {
         this.factory = factory;
     }
 
-    public short getAuthorId() {
-        return authorIdd;
+    public Author getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthorId(short authorId) {
-        this.authorIdd = authorIdd;
+    public void setAuthorId(Author authorId) {
+        this.authorId = authorId;
     }
 
     @Override
