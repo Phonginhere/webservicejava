@@ -31,8 +31,8 @@ public class BookWebService {
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
     }
-     @WebMethod(operationName = "findAll")
-    public List<Book> findAll() {
+     @WebMethod(operationName = "findAll1")
+    public List<Book> findAll1() {
         EntityManager entityManager = Persistence.createEntityManagerFactory("WSAppLibraryPU").createEntityManager();
         List<Book> books = new ArrayList<Book>();
 

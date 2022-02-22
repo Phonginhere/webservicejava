@@ -1,13 +1,14 @@
 <%-- 
     Document   : index
-    Created on : Feb 22, 2022, 8:35:44 AM
+    Created on : Feb 22, 2022, 8:48:38 AM
     Author     : Phong_learning
 --%>
 
-<%@page import="services.Author"%>
+<%@page import="services.book.Book"%>
+<%@page import="services.book.BookWebService"%>
+<%@page import="services.book.BookWebService_Service"%>
 <%@page import="java.util.List"%>
-<%@page import="services.AuthorWebService_Service"%>
-<%@page import="services.AuthorWebService"%>
+<%@page import="services.bookservice.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,17 +20,19 @@
         <h1>Hello World!</h1>
          <table border="1">
         <tr>
-          <th>Author Name</th>
-          <th>Birth Day</th>
-          <th>Address</th>
+          <th>Book Name</th>
+          <th>Price</th>
+          <th>Delivered Date</th>
           <th>NickName</th>
+          <th>Factory</th>
+          <th>Author Name</th>
           <th>Action</th>
         </tr>
          <%
             //call service, like WCF trong C#
             
-            AuthorWebService_Service service = new AuthorWebService_Service();
-            AuthorWebService port = service.getAuthorWebServicePort();
+            BookWebService_Service service = new BookWebService_Service();
+            BookWebService port = service.getBookWebServicePort();
             /*
             String deleteEmployeeNo = request.getParameter("deleteEmployeeNo");
             if(deleteEmployeeNo != null) {
@@ -40,15 +43,17 @@
                 }
             } 
 */
-            List<Author> authors = port.findAll();                        
-            for(Author author: authors) {
+            List<Book> books = port.findAll1();
+            for(Book book: books) {
                 out.println("<tr>");
-                out.println("<td>"+author.getAuthorName()+"</td>");
-                out.println("<td>"+author.getBirthday()+"</td>");
-                out.println("<td>"+author.getAddress()+"</td>");
-                out.println("<td>"+author.getNickname()+"</td>");
+                out.println("<td>"+book.getBookName()+"</td>");
+                out.println("<td>"+book.getPrice()+"</td>");
+                out.println("<td>"+book.getDeliveredDate()+"</td>");
+                out.println("<td>"+book.getNickname()+"</td>");
+                out.println("<td>"+book.getFactory()+"</td>");
+                out.println("<td>"+book.getAuthorId().getAuthorName()+"</td>");
                 out.println("<td><a href='./index.jsp?deleteEmployeeNo="
-                        +author.getAuthorId()+"'>Delete</td>");
+                        +book.getId()+"'>Delete</td>");
                 out.println("</tr>");                
             }
             

@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://services/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://services/">
+
+<xs:element name="author" type="tns:author" />
+
+<xs:element name="book" type="tns:book" />
+
+<xs:element name="deleteBook" type="tns:deleteBook" />
+
+<xs:element name="deleteBookResponse" type="tns:deleteBookResponse" />
+
+<xs:element name="find" type="tns:find" />
+
+<xs:element name="findAll1" type="tns:findAll1" />
+
+<xs:element name="findAll1Response" type="tns:findAll1Response" />
+
+<xs:element name="findAuthor" type="tns:findAuthor" />
+
+<xs:element name="findAuthorResponse" type="tns:findAuthorResponse" />
+
+<xs:element name="findResponse" type="tns:findResponse" />
+
+<xs:element name="hello" type="tns:hello" />
+
+<xs:element name="helloResponse" type="tns:helloResponse" />
+
+<xs:element name="insertBook" type="tns:insertBook" />
+
+<xs:element name="insertBookResponse" type="tns:insertBookResponse" />
+
+<xs:element name="update" type="tns:update" />
+
+<xs:element name="updateResponse" type="tns:updateResponse" />
+
+<xs:complexType name="insertBook">
+<xs:sequence>
+<xs:element name="bookName" type="xs:string" minOccurs="0" />
+<xs:element name="price" type="xs:string" minOccurs="0" />
+<xs:element name="deliveredDate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="factory" type="xs:string" minOccurs="0" />
+<xs:element name="nickname" type="xs:string" minOccurs="0" />
+<xs:element name="authorId" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertBookResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:book" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="book">
+<xs:sequence>
+<xs:element name="authorId" type="tns:author" minOccurs="0" />
+<xs:element name="bookName" type="xs:string" minOccurs="0" />
+<xs:element name="deliveredDate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="factory" type="xs:string" minOccurs="0" />
+<xs:element name="id" type="xs:short" minOccurs="0" />
+<xs:element name="nickname" type="xs:string" minOccurs="0" />
+<xs:element name="price" type="xs:float" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="author">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0" />
+<xs:element name="authorId" type="xs:short" minOccurs="0" />
+<xs:element name="authorName" type="xs:string" minOccurs="0" />
+<xs:element name="birthday" type="xs:dateTime" minOccurs="0" />
+<xs:element name="nickname" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="find">
+<xs:sequence>
+<xs:element name="authorId" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:author" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="update">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0" />
+<xs:element name="bookName" type="xs:string" minOccurs="0" />
+<xs:element name="price" type="xs:string" minOccurs="0" />
+<xs:element name="deliveredDate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="factory" type="xs:string" minOccurs="0" />
+<xs:element name="nickname" type="xs:string" minOccurs="0" />
+<xs:element name="authorId" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:book" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAuthor">
+<xs:sequence>
+<xs:element name="authorId" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAuthorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:author" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAll1">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="findAll1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:book" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteBook">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteBookResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

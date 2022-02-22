@@ -2,4 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8084/WSAppLibrary/AuthorWebService?wsdl" uri="src/conf/xml-resources/web-service-references/AuthorWebService_1/wsdl/localhost_8084/WSAppLibrary/AuthorWebService.wsdl"/>
     <system systemId="http://localhost:8084/WSAppLibrary/AuthorWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/AuthorWebService_1/wsdl/localhost_8084/WSAppLibrary/AuthorWebService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8084/WSAppLibrary/BookWebService?wsdl" uri="src/conf/xml-resources/web-service-references/BookWebService_1/wsdl/localhost_8084/WSAppLibrary/BookWebService.wsdl"/>
+    <system systemId="http://localhost:8084/WSAppLibrary/BookWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/BookWebService_1/wsdl/localhost_8084/WSAppLibrary/BookWebService.xsd_1.xsd"/>
 </catalog>

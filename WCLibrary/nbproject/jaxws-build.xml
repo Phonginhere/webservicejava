@@ -58,5 +58,37 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/clients"/>
         <delete dir="${build.generated.dir}/jax-wsCache/AuthorWebService_1"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-AuthorWebService, wsimport-client-AuthorWebService_1"/>
+    <target name="wsimport-client-BookWebService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/BookWebService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/BookWebService" destdir="${build.generated.dir}/jax-wsCache/BookWebService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BookWebService/wsdl/localhost_8084/WSAppLibrary/BookWebService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8084/WSAppLibrary/BookWebService?wsdl" xnocompile="true" xendorsed="true" package="services.bookservice">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/BookWebService/wsdl/localhost_8084/WSAppLibrary/BookWebService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/BookWebService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/BookWebService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-BookWebService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/services/bookservice"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/BookWebService"/>
+    </target>
+    <target name="wsimport-client-BookWebService_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/BookWebService_1"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/BookWebService_1" destdir="${build.generated.dir}/jax-wsCache/BookWebService_1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BookWebService_1/wsdl/localhost_8084/WSAppLibrary/BookWebService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8084/WSAppLibrary/BookWebService?wsdl" xnocompile="true" xendorsed="true" package="services.book">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/BookWebService_1/wsdl/localhost_8084/WSAppLibrary/BookWebService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/BookWebService_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/BookWebService_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-BookWebService_1" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/services/book"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/BookWebService_1"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-AuthorWebService, wsimport-client-AuthorWebService_1, wsimport-client-BookWebService, wsimport-client-BookWebService_1"/>
 </project>
