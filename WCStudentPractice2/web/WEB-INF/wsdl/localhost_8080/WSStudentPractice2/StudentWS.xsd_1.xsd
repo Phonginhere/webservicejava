@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://services/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://services/">
+
+<xs:element name="delete" type="tns:delete" />
+
+<xs:element name="deleteResponse" type="tns:deleteResponse" />
+
+<xs:element name="find" type="tns:find" />
+
+<xs:element name="findAll" type="tns:findAll" />
+
+<xs:element name="findAllResponse" type="tns:findAllResponse" />
+
+<xs:element name="findResponse" type="tns:findResponse" />
+
+<xs:element name="hello" type="tns:hello" />
+
+<xs:element name="helloResponse" type="tns:helloResponse" />
+
+<xs:element name="insert" type="tns:insert" />
+
+<xs:element name="insertResponse" type="tns:insertResponse" />
+
+<xs:element name="student" type="tns:student" />
+
+<xs:element name="update" type="tns:update" />
+
+<xs:element name="updateResponse" type="tns:updateResponse" />
+
+<xs:complexType name="find">
+<xs:sequence>
+<xs:element name="rollNo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:student" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="student">
+<xs:sequence>
+<xs:element name="birthday" type="xs:dateTime" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="fullname" type="xs:string" minOccurs="0" />
+<xs:element name="gender" type="xs:boolean" />
+<xs:element name="rollNo" type="xs:int" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="update">
+<xs:sequence>
+<xs:element name="rollNo" type="xs:string" minOccurs="0" />
+<xs:element name="fullname" type="xs:string" minOccurs="0" />
+<xs:element name="gender" type="xs:string" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="birthday" type="xs:dateTime" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:student" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insert">
+<xs:sequence>
+<xs:element name="fullname" type="xs:string" minOccurs="0" />
+<xs:element name="gender" type="xs:string" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="birthday" type="xs:dateTime" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:student" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="delete">
+<xs:sequence>
+<xs:element name="rollNo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAll">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="findAllResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:student" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
