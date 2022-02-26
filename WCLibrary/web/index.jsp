@@ -73,7 +73,7 @@
                     out.println("<td>" + author.getBirthday() + "</td>");
                     out.println("<td>" + author.getAddress() + "</td>");
                     out.println("<td>" + author.getNickname() + "</td>");
-                    out.println("<td><a href='./index.jsp?deleteEmployeeNo="
+                    out.println("<td><a href='./update.jsp?deleteEmployeeNo="
                             + author.getAuthorId() + "'>Update</td>");
                     out.println("<td><a href='./index.jsp?deleteEmployeeNo="
                             + author.getAuthorId() + "'>Delete</td>");

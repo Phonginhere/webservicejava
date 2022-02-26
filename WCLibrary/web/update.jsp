@@ -17,7 +17,7 @@
         <% 
             BookWebService_Service service = new BookWebService_Service();
             BookWebService port = service.getBookWebServicePort();
-            String id = request.getParameter("deleteEmployeeNo");
+            String id = request.getParameter("updateEmployeeNo");
             Book bookone = null;
             if(id != null){
                 try{
